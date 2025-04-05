@@ -185,8 +185,9 @@
             </div>
           </div>
           <div class="contact-form">
-            <form id="email-form">
+            <form id="email-form" action="https://api.web3forms.com/submit" method="POST">
               <div class="form-group">
+                <input type="hidden" name="access_key" value="ba831fe1-f32b-4932-b4e6-2cfeae9aca06">
                 <input type="text" id="name" name="name" placeholder="Your Name" required>
               </div>
               <div class="form-group">
@@ -229,7 +230,6 @@
         </div>
       </div>
     </div>
-
     <script src="script.js"></script>
   </body>
 </html>
