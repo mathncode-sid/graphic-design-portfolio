@@ -1,4 +1,3 @@
-
 // Navigation functionality
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('nav');
@@ -191,23 +190,44 @@ window.addEventListener('click', (e) => {
   }
 });
 
-// Form submission
-const form = document.getElementById('email-form');
+// Initialize EmailJS
+emailjs.init("service_cygydj6");
 
+// Form submission with validation
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const subject = document.getElementById('subject').value;
-  const message = document.getElementById('message').value;
-  
-  // You would typically send this data to a server
-  console.log('Form submitted:', { name, email, subject, message });
-  
-  // Show success message
-  alert('Thank you for your message! I will get back to you soon.');
-  form.reset();
+
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const subject = document.getElementById('subject').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  // Basic validation
+  if (!name || !email || !subject || !message) {
+    alert('Please fill out all fields.');
+    return;
+  }
+
+  if (!/\S+@\S+\.\S+/.test(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  // Send email using EmailJS
+  emailjs.send("service_cygydj6", "template_28ibpcq", {
+    name: name,
+    email: email,
+    subject: subject,
+    message: message
+  })
+  .then(() => {
+    alert('Thank you for your message! I will get back to you soon.');
+    form.reset();
+  })
+  .catch((error) => {
+    console.error('Error sending email:', error);
+    alert('Oops! Something went wrong. Please try again later.');
+  });
 });
 
 // Skill bars animation trigger on scroll
