@@ -52,63 +52,63 @@ const projects = [
     id: 1,
     title: "Against The Odds - Book Cover",
     category: "branding",
-    img: "assets/Against The Odds Book Cover.png",
+    img: "assets/Against The Odds Book Cover.webp",
     description: "Minimalist book cover design with contrast and powerful typography."
   },
   {
     id: 2,
     title: "Bruno Fernandes - Football Player Feature",
     category: "social",
-    img: "assets/Bruno8.png",
+    img: "assets/Bruno8.webp",
     description: "Dynamic social media graphic for Manchester United player Bruno Fernandes featuring geometric design elements."
   },
   {
     id: 3,
     title: "CR7 x Nike - Winning Isn't For Everyone",
     category: "branding",
-    img: "assets/CR7.png",
+    img: "assets/CR7.webp",
     description: "Inspirational sports marketing design for Cristiano Ronaldo and Nike collaboration."
   },
   {
     id: 4,
     title: "Benefits of Strawberry - Infographic",
     category: "print",
-    img: "assets/Day One.png",
+    img: "assets/Day One.webp",
     description: "Educational infographic design highlighting the health benefits of strawberries with modern sliced fruit effect."
   },
   {
     id: 5,
     title: "Emmanuel Kiprotich - Campaign Poster",
     category: "print",
-    img: "assets/EK Delegate Poster(1).png",
+    img: "assets/EK Delegate Poster(1).webp",
     description: "Academic campaign poster for physics department delegate with clean layout and professional branding."
   },
   {
     id: 6,
     title: "Just Do It - Nike Basketball Campaign",
     category: "branding",
-    img: "assets/JUST DO IT - STEPH CURRY.png",
+    img: "assets/JUST DO IT - STEPH CURRY.webp",
     description: "Motivational sports poster featuring Stephen Curry with Nike's iconic slogan."
   },
   {
     id: 7,
     title: "Music Streaming Promotion",
     category: "social",
-    img: "assets/LISTEN PARTY.png",
+    img: "assets/LISTEN PARTY.webp",
     description: "Modern streaming music promotional graphic with atmospheric lighting and gradient effects."
   },
   {
     id: 8,
     title: "Ray of Kindness - Charity Event",
     category: "print",
-    img: "assets/RAY OF KINDNESS INSTAGRAM POST 1.png",
+    img: "assets/RAY OF KINDNESS INSTAGRAM POST 1.webp",
     description: "Charity event flyer for Tree House Children's Home with vibrant design and clear information layout."
   },
   {
     id: 9,
     title: "Ronaldo - Real Madrid Tribute",
     category: "social",
-    img: "assets/RealCR7.png",
+    img: "assets/RealCR7.webp",
     description: "Sports tribute design showcasing Cristiano Ronaldo during his time at Real Madrid with dynamic layout."
   }
 ];
