@@ -13,7 +13,7 @@ This is a personal portfolio website for Sidney Muriuki, a graphic designer spec
 
 ## Live Demo
 
-You can view the live demo of the website [here](#).
+You can view the live demo of the website  https://the-sid-effect.netlify.app.
 
 ## Features
 
