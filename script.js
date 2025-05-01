@@ -110,6 +110,13 @@ const projects = [
     category: "social",
     img: "assets/RealCR7.webp",
     description: "Sports tribute design showcasing Cristiano Ronaldo during his time at Real Madrid with dynamic layout."
+  },
+  {
+    id: 10,
+    title: "Echoes of Resilience",
+    category: "social",
+    img: "assets/Echoes of Resilience webinar.webp",
+    description: "Webinar Poster for EmoEase Community in partnership with Harun Gachiri"
   }
 ];
 
