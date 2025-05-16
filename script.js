@@ -117,6 +117,20 @@ const projects = [
     category: "social",
     img: "assets/Echoes of Resilience webinar.webp",
     description: "Webinar Poster for EmoEase Community in partnership with Harun Gachiri"
+  },
+  {
+    id:11,
+    title: "Men Talk. Men Heal",
+    category: "print",
+    img: "assets/MTH(1).webp",
+    description: "A poster for a Men's Wellness Event on Father's Day"
+  },
+  {
+    id:12,
+    title: "Self Love Webinar",
+    category: "social",
+    img: "assets/Self Love The Foundation of Wellness.webp",
+    description: "A Men's Wellness Webinar on Self Love"
   }
 ];
 
