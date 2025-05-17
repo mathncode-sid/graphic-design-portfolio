@@ -131,6 +131,13 @@ const projects = [
     category: "social",
     img: "assets/Self Love The Foundation of Wellness.webp",
     description: "A Men's Wellness Webinar on Self Love"
+  },
+  {
+    id:13,
+    title: "EA Vertical Business Card",
+    category: "branding",
+    img: "assets/Manuel Abae.webp",
+    description: "This is a business card for a client who wanted to show his services offered"
   }
 ];
 
