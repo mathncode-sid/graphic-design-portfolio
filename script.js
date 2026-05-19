@@ -1,32 +1,45 @@
-// Navigation functionality
+// ========================================
+// AUTO-UPDATE FOOTER YEAR
+// ========================================
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// ========================================
+// NAVIGATION & MENU FUNCTIONALITY
+// ========================================
+
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('nav');
 const navLinks = document.querySelectorAll('nav ul li a');
 
 menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
   nav.classList.toggle('active');
 });
 
 // Close menu when clicking on a nav link
 navLinks.forEach(link => {
   link.addEventListener('click', () => {
+    menuToggle.classList.remove('active');
     nav.classList.remove('active');
   });
 });
 
-// Highlight active nav item based on scroll position
+// ========================================
+// HEADER SCROLL FUNCTIONALITY
+// ========================================
+
 window.addEventListener('scroll', () => {
-  const sections = document.querySelectorAll('section');
   const header = document.querySelector('header');
   
-  // Add background to header when scrolled
   if (window.scrollY > 100) {
     header.classList.add('scrolled');
   } else {
     header.classList.remove('scrolled');
   }
-  
+
   // Update active nav link based on scroll position
+  const sections = document.querySelectorAll('section');
   let current = '';
   
   sections.forEach(section => {
@@ -46,28 +59,31 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Projects data with the new uploaded images
+// ========================================
+// PROJECTS DATA
+// ========================================
+
 const projects = [
   {
     id: 1,
     title: "Against The Odds - Book Cover",
     category: "branding",
     img: "assets/Against The Odds Book Cover.webp",
-    description: "Minimalist book cover design with contrast and powerful typography."
+    description: "Minimalist book cover design with contrast and powerful typography that captures the essence of overcoming challenges."
   },
   {
     id: 2,
     title: "Bruno Fernandes - Football Player Feature",
     category: "social",
     img: "assets/Bruno8.webp",
-    description: "Dynamic social media graphic for Manchester United player Bruno Fernandes featuring geometric design elements."
+    description: "Dynamic social media graphic for Manchester United player Bruno Fernandes featuring geometric design elements and vibrant colors."
   },
   {
     id: 3,
     title: "CR7 x Nike - Winning Isn't For Everyone",
     category: "branding",
     img: "assets/CR7.webp",
-    description: "Inspirational sports marketing design for Cristiano Ronaldo and Nike collaboration."
+    description: "Inspirational sports marketing design for Cristiano Ronaldo and Nike collaboration with powerful messaging."
   },
   {
     id: 4,
@@ -88,7 +104,7 @@ const projects = [
     title: "Just Do It - Nike Basketball Campaign",
     category: "branding",
     img: "assets/JUST DO IT - STEPH CURRY.webp",
-    description: "Motivational sports poster featuring Stephen Curry with Nike's iconic slogan."
+    description: "Motivational sports poster featuring Stephen Curry with Nike's iconic slogan and dynamic composition."
   },
   {
     id: 7,
@@ -116,32 +132,35 @@ const projects = [
     title: "Echoes of Resilience",
     category: "social",
     img: "assets/Echoes of Resilience webinar.webp",
-    description: "Webinar Poster for EmoEase Community in partnership with Harun Gachiri"
+    description: "Professional webinar poster for EmoEase Community in partnership with Harun Gachiri."
   },
   {
-    id:11,
+    id: 11,
     title: "Men Talk. Men Heal",
     category: "print",
     img: "assets/MTH(1).webp",
-    description: "A poster for a Men's Wellness Event on Father's Day"
+    description: "Impactful poster for a Men's Wellness Event on Father's Day promoting mental health awareness."
   },
   {
-    id:12,
+    id: 12,
     title: "Self Love Webinar",
     category: "social",
     img: "assets/Self Love The Foundation of Wellness.webp",
-    description: "A Men's Wellness Webinar on Self Love"
+    description: "Professional webinar design on Self Love focusing on wellness and personal development."
   },
   {
-    id:13,
+    id: 13,
     title: "EA Vertical Business Card",
     category: "branding",
     img: "assets/Manuel Abae.webp",
-    description: "This is a business card for a client who wanted to show his services offered"
+    description: "Professional business card design for a client showcasing their services with elegant vertical layout."
   }
 ];
 
-// Populate projects grid
+// ========================================
+// PROJECT GRID & FILTERING
+// ========================================
+
 const projectsGrid = document.querySelector('.projects-grid');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const modal = document.getElementById('project-modal');
@@ -151,7 +170,6 @@ const modalTitle = document.getElementById('modal-title');
 const modalDescription = document.getElementById('modal-description');
 const modalCategory = document.getElementById('modal-category');
 
-// Function to create project elements
 function createProjectElements(projectsToShow) {
   projectsGrid.innerHTML = '';
   
@@ -159,6 +177,7 @@ function createProjectElements(projectsToShow) {
     const projectItem = document.createElement('div');
     projectItem.classList.add('project-item');
     projectItem.setAttribute('data-id', project.id);
+    projectItem.setAttribute('data-category', project.category);
     
     projectItem.innerHTML = `
       <img src="${project.img}" alt="${project.title}" class="project-img">
@@ -175,9 +194,9 @@ function createProjectElements(projectsToShow) {
       modalImage.src = project.img;
       modalTitle.textContent = project.title;
       modalDescription.textContent = project.description;
-      modalCategory.textContent = `Category: ${project.category}`;
+      modalCategory.textContent = `Category: ${project.category.charAt(0).toUpperCase() + project.category.slice(1)}`;
       modal.style.display = 'block';
-      document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+      document.body.style.overflow = 'hidden';
     });
   });
 }
@@ -188,9 +207,7 @@ createProjectElements(projects);
 // Filter functionality
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    // Remove active class from all buttons
     filterBtns.forEach(b => b.classList.remove('active'));
-    // Add active class to clicked button
     btn.classList.add('active');
     
     const filter = btn.getAttribute('data-filter');
@@ -204,13 +221,15 @@ filterBtns.forEach(btn => {
   });
 });
 
-// Close modal
+// ========================================
+// MODAL FUNCTIONALITY
+// ========================================
+
 closeModal.addEventListener('click', () => {
   modal.style.display = 'none';
-  document.body.style.overflow = 'auto'; // Re-enable scrolling
+  document.body.style.overflow = 'auto';
 });
 
-// Close modal when clicking outside
 window.addEventListener('click', (e) => {
   if (e.target === modal) {
     modal.style.display = 'none';
@@ -218,10 +237,20 @@ window.addEventListener('click', (e) => {
   }
 });
 
-// Initialize EmailJS
-emailjs.init("service_cygydj6");
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.style.display === 'block') {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+});
 
-// Form submission with validation
+// ========================================
+// CONTACT FORM HANDLING
+// ========================================
+
+const form = document.getElementById('email-form');
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -241,38 +270,57 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  // Send email using EmailJS
-  emailjs.send("service_cygydj6", "template_28ibpcq", {
-    name: name,
-    email: email,
-    subject: subject,
-    message: message
-  })
-  .then(() => {
-    alert('Thank you for your message! I will get back to you soon.');
-    form.reset();
-  })
-  .catch((error) => {
-    console.error('Error sending email:', error);
-    alert('Oops! Something went wrong. Please try again later.');
-  });
+  // Submit form
+  form.submit();
 });
 
-// Skill bars animation trigger on scroll
-const skillSection = document.querySelector('.skills');
-const skillBars = document.querySelectorAll('.skill-level');
+// ========================================
+// SKILL BARS ANIMATION
+// ========================================
 
-const showSkills = () => {
+const skillBars = document.querySelectorAll('.skill-progress');
+let skillsAnimated = false;
+
+function animateSkills() {
+  if (skillsAnimated) return;
+  
   skillBars.forEach(bar => {
-    bar.style.width = bar.parentElement.children[0].style.width;
+    const width = bar.style.width;
+    bar.style.width = '0';
+    setTimeout(() => {
+      bar.style.width = width;
+    }, 100);
   });
-};
+  
+  skillsAnimated = true;
+}
 
 window.addEventListener('scroll', () => {
+  const skillSection = document.querySelector('.about');
+  if (!skillSection) return;
+  
   const sectionPos = skillSection.getBoundingClientRect().top;
   const screenPos = window.innerHeight / 1.3;
   
-  if(sectionPos < screenPos) {
-    showSkills();
+  if (sectionPos < screenPos && !skillsAnimated) {
+    animateSkills();
   }
 });
+
+// ========================================
+// SMOOTH SCROLL BEHAVIOR
+// ========================================
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
